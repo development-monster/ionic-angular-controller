@@ -13,7 +13,7 @@ export class MonPopoverController {
     private historyCtrl: MonHistoryController,
     private alerCtrl: PopoverController
   ) {
-    console.log('injected:MonPopoverController');
+    //console.log('injected:MonPopoverController');
   }
   async create(opts: MonPopoverOptions < ComponentRef > ) {
     return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonPopoverElement;

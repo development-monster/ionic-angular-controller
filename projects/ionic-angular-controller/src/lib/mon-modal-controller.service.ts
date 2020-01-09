@@ -12,7 +12,7 @@ export class MonModalController {
     private historyCtrl: MonHistoryController,
     private alerCtrl: ModalController
   ) {
-    console.log('injected:MonModalController');
+    //console.log('injected:MonModalController');
   }
   async create(opts: MonModalOptions < ComponentRef > ) {
     return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonModalElement;

@@ -10,6 +10,10 @@ This library is expansions of [ionic4 controllers](https://ionicframework.com/do
 
 > It is **unstable** expansion. So use carefully.
 
+### bugs
+
+* `NavController & Router` : If you didn't close modal and move to another page, 
+
 ## install
 
 ```
@@ -35,7 +39,7 @@ export class AppModule {}
 ```
 
 and then any page's modult.ts to use this controllers.
-These are the same usage as [ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal) and [ion-popover](https://ionicframework.com/docs/api/popover).
+These are allmost same usage as [ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal) and [ion-popover](https://ionicframework.com/docs/api/popover).
 
 **monster-alert-controller**
 ```javascript
@@ -63,18 +67,19 @@ export class HomePage implements OnInit {
         },
         {
           text: 'close this alert',
-        handler: () => {
-          alert.dismiss();
-          return false;
-        }
+          handler: () => {
+            alert.dismiss();
+            return false;
+          }
         },
         {
-        text: 'open one more',
-        handler: () => {
-          this.openAlert();
-          return false;
+          text: 'open one more',
+          handler: () => {
+            this.openAlert();
+            return false;
+          }
         }
-      }]
+      ]
     });
     await alert.present();
   }

@@ -6,49 +6,48 @@ interface MonHistoryItem {
 }
 @Injectable()
 export class MonHistoryController {
-  historyList: Array < MonHistoryItem > = [];
+  historyList: Array < any > = [];
   historyTrigger:boolean = false;
 
   constructor(
   ) {
-    console.log('injected:MonHistoryController');
+    console.log('injected:dev-monster/ionic-angular-controller');
     window.addEventListener('popstate', () => {
-      console.log('popstate', this.historyTrigger);
+      //console.log('popstate:historyTrigger', this.historyTrigger);
       if(this.historyTrigger) {
         this.historyTrigger = false;
       } else {
-        console.log('popstate', this.historyList);
+        //console.log('popstate:historyList', this.historyList);
         this.historyTrigger = true;
-        const lastHistoryData = this.historyList.pop();
-        lastHistoryData.ctrl.dismiss();
+        const itemIndex = this.historyList.indexOf(this.historyList.length-1);
+        //console.log('popstate:itemIndex', itemIndex);
+        if(itemIndex) {
+          const lastHistoryData = this.historyList.pop();
+          lastHistoryData.dismiss();
+        }
       }
     });
   }
   async create(ctrl, opts) {
 
     const monCtrl = await ctrl.create(opts);
-    
-    const historyData: MonHistoryItem = {
-      id: this.getId(),
-      ctrl: monCtrl
-    };
 
-    history.pushState(historyData.id, 'MonHistoryController', location.href);
-    this.historyList.push(historyData);
+    history.pushState({id: new Date().getTime()}, 'MonHistoryController', location.href);
+    this.historyList.push(monCtrl);
     
     monCtrl.onWillDismiss().then(() => {
-      console.log('onWillDismiss', this.historyTrigger);
+      //console.log('onWillDismiss:historyTrigger', this.historyTrigger);
       if(this.historyTrigger) {
         this.historyTrigger = false;
       } else {
-        console.log('onWillDismiss', this.historyList);
+        //console.log('onWillDismiss:historyList', this.historyList);
         this.historyTrigger = true;
+        const itemIndex = this.historyList.indexOf(monCtrl);
+        //console.log('onWillDismiss:itemIndex', itemIndex);
+        this.historyList.splice(itemIndex, 1);
         history.back();
       }
     });
     return monCtrl;
-  }
-  getId() {
-    return String(new Date().getTime());
   }
 }

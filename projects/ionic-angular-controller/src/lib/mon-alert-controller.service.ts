@@ -12,7 +12,7 @@ export class MonAlertController {
     private historyCtrl: MonHistoryController,
     private alerCtrl: AlertController
   ) {
-    console.log('injected:MonAlertController');
+    //console.log('injected:MonAlertController');
   }
   async create(opts: MonAlertOptions < ComponentRef > ) {
     return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonAlertElement;
