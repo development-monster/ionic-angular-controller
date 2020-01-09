@@ -13,16 +13,17 @@ export class MonHistoryController {
   ) {
     console.log('injected:dev-monster/ionic-angular-controller');
     window.addEventListener('popstate', () => {
-      //console.log('popstate:historyTrigger', this.historyTrigger);
+      console.log('popstate:historyTrigger', this.historyTrigger);
       if(this.historyTrigger) {
         this.historyTrigger = false;
       } else {
-        //console.log('popstate:historyList', this.historyList);
-        this.historyTrigger = true;
-        const itemIndex = this.historyList.indexOf(this.historyList.length-1);
-        //console.log('popstate:itemIndex', itemIndex);
-        if(itemIndex) {
+        console.log('popstate:historyList', this.historyList);
+        if(this.historyList.length) {
+          const itemIndex = this.historyList[this.historyList.length-1];
+          console.log('popstate:itemIndex', itemIndex);
+          this.historyTrigger = true;
           const lastHistoryData = this.historyList.pop();
+          console.log(lastHistoryData);
           lastHistoryData.dismiss();
         }
       }
@@ -36,14 +37,14 @@ export class MonHistoryController {
     this.historyList.push(monCtrl);
     
     monCtrl.onWillDismiss().then(() => {
-      //console.log('onWillDismiss:historyTrigger', this.historyTrigger);
+      console.log('onWillDismiss:historyTrigger', this.historyTrigger);
       if(this.historyTrigger) {
         this.historyTrigger = false;
       } else {
-        //console.log('onWillDismiss:historyList', this.historyList);
+        console.log('onWillDismiss:historyList', this.historyList);
         this.historyTrigger = true;
         const itemIndex = this.historyList.indexOf(monCtrl);
-        //console.log('onWillDismiss:itemIndex', itemIndex);
+        console.log('onWillDismiss:itemIndex', itemIndex);
         this.historyList.splice(itemIndex, 1);
         history.back();
       }
