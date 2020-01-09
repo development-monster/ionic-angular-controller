@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ionic-angular-controller": [
+        "dist/ionic-angular-controller"
+      ],
+      "ionic-angular-controller/*": [
+        "dist/ionic-angular-controller/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

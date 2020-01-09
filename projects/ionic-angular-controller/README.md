@@ -36,6 +36,8 @@ export class AppModule {}
 
 and then any page's modult.ts to use this controllers.
 These are the same usage as [ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal) and [ion-popover](https://ionicframework.com/docs/api/popover).
+
+**monster-alert-controller**
 ```javascript
 import { MonAlertController } from '@dev-monster/ionic-angular-controller';
 
@@ -75,6 +77,41 @@ export class HomePage implements OnInit {
       }]
     });
     await alert.present();
+  }
+}
+```
+**monster-modal-controller**
+```javascript
+import { MonAlertController } from '@dev-monster/ionic-angular-controller';
+
+export class HomePage implements OnInit {
+  constructor(
+    private alertCtrl: MonAlertController
+  ) { }
+
+  async ngOnInit() {
+    const modal = await this.modalCtrl.create({
+      component: ModalSampleComponent
+    });
+    await modal.present();
+  }
+}
+```
+**monster-popover-controller**
+```javascript
+import { MonAlertController } from '@dev-monster/ionic-angular-controller';
+
+export class HomePage implements OnInit {
+  constructor(
+    private alertCtrl: MonAlertController
+  ) { }
+
+  async ngOnInit() {
+    const popover = await this.popoverCtrl.create({
+      component: PopoverSampleComponent,
+      event: ev
+    });
+    await popover.present();
   }
 }
 ```
