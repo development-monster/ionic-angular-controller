@@ -10,17 +10,17 @@ export interface MonModalOptions < ComponentRef > extends ModalOptions {
 export class MonModalController {
   constructor(
     private historyCtrl: MonHistoryController,
-    private alerCtrl: ModalController
+    private modalCtrl: ModalController
   ) {
     //console.log('injected:MonModalController');
   }
   async create(opts: MonModalOptions < ComponentRef > ) {
-    return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonModalElement;
+    return await this.historyCtrl.create(this.modalCtrl, opts) as HTMLIonModalElement;
   }
   async dismiss(data?: any, role?: string | undefined, id?: string | undefined):Promise<boolean> {
-    return await this.alerCtrl.dismiss(data, role, id);
+    return await this.modalCtrl.dismiss(data, role, id);
   }
   async getTop():Promise<HTMLIonModalElement | undefined> {
-    return await this.alerCtrl.getTop();
+    return await this.modalCtrl.getTop();
   }
 }

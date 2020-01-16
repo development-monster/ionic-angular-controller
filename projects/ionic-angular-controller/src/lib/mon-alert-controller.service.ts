@@ -10,17 +10,17 @@ export interface MonAlertOptions < ComponentRef > extends AlertOptions {
 export class MonAlertController {
   constructor(
     private historyCtrl: MonHistoryController,
-    private alerCtrl: AlertController
+    private alertCtrl: AlertController
   ) {
     //console.log('injected:MonAlertController');
   }
   async create(opts: MonAlertOptions < ComponentRef > ) {
-    return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonAlertElement;
+    return await this.historyCtrl.create(this.alertCtrl, opts) as HTMLIonAlertElement;
   }
   async dismiss(data?: any, role?: string | undefined, id?: string | undefined):Promise<boolean> {
-    return await this.alerCtrl.dismiss(data, role, id);
+    return await this.alertCtrl.dismiss(data, role, id);
   }
   async getTop():Promise<HTMLIonAlertElement | undefined> {
-    return await this.alerCtrl.getTop();
+    return await this.alertCtrl.getTop();
   }
 }

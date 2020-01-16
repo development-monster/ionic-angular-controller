@@ -1,7 +1,7 @@
 {
   "name": "@dev-monster/ionic-angular-controller",
   "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.",
-  "version": "0.0.25",
+  "version": "0.0.27",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"

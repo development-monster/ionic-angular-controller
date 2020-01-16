@@ -1,6 +1,7 @@
 # @dev-monster/ionic-angualr-controller
 
 This library is expansions of [ionic4 controllers](https://ionicframework.com/docs/components).
+[ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal), [ion-popover](https://ionicframework.com/docs/api/popover) and [ion-toast](https://ionicframework.com/docs/api/toast).
 
 ## main functions
 
@@ -39,7 +40,7 @@ export class AppModule {}
 ```
 
 and then any page's modult.ts to use this controllers.
-These are allmost same usage as [ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal) and [ion-popover](https://ionicframework.com/docs/api/popover).
+These are allmost same usage as [ion-alert](https://ionicframework.com/docs/api/alert), [ion-modal](https://ionicframework.com/docs/api/modal), [ion-popover](https://ionicframework.com/docs/api/popover) and [ion-toast](https://ionicframework.com/docs/api/toast).
 
 **monster-alert-controller**
 ```javascript

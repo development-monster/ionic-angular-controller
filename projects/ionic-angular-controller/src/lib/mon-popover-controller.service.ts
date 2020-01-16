@@ -11,17 +11,17 @@ export class MonPopoverController {
 
   constructor(
     private historyCtrl: MonHistoryController,
-    private alerCtrl: PopoverController
+    private popoverCtrl: PopoverController
   ) {
     //console.log('injected:MonPopoverController');
   }
   async create(opts: MonPopoverOptions < ComponentRef > ) {
-    return await this.historyCtrl.create(this.alerCtrl, opts) as HTMLIonPopoverElement;
+    return await this.historyCtrl.create(this.popoverCtrl, opts) as HTMLIonPopoverElement;
   }
   async dismiss(data?: any, role?: string | undefined, id?: string | undefined):Promise<boolean> {
-    return await this.alerCtrl.dismiss(data, role, id);
+    return await this.popoverCtrl.dismiss(data, role, id);
   }
   async getTop():Promise<HTMLIonPopoverElement | undefined> {
-    return await this.alerCtrl.getTop();
+    return await this.popoverCtrl.getTop();
   }
 }
