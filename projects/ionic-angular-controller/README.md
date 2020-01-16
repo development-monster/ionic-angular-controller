@@ -11,10 +11,6 @@ This library is expansions of [ionic4 controllers](https://ionicframework.com/do
 
 > It is **unstable** expansion. So use carefully.
 
-### bugs
-
-* `NavController & Router` : If you didn't close modal and move to another page, 
-
 ## install
 
 ```
